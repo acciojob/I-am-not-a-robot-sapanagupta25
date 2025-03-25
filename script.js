@@ -19,11 +19,12 @@ const resetButton = document.getElementById('reset');
 const verifyButton = document.getElementById('verify');
 const message = document.getElementById('para');
 
-// Create and display images
+// ✅ Create and display images with correct class names
 function displayImages() {
     shuffledImages.forEach((src, index) => {
         const img = document.createElement('img');
         img.src = src;
+        img.className = `img${(index % 5) + 1}`; // Assign class names .img1 to .img5
         img.dataset.index = index;
         img.addEventListener('click', () => selectImage(img));
         container.appendChild(img);
@@ -68,5 +69,5 @@ function verifySelection() {
 resetButton.addEventListener('click', resetSelection);
 verifyButton.addEventListener('click', verifySelection);
 
-// Initialize
+// ✅ Initialize with fixed class names
 displayImages();
